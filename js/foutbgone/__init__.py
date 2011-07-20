@@ -4,6 +4,8 @@ library = Library('fout-b-gone', 'resources')
 
 foutbgone = Resource(library, 'foutbgone.js')
 
-# Define the resources in the library like this.
-# For options and examples, see the fanstatic documentation.
-# resource1 = Resource(library, 'style.css')
+def render_init(url):
+    return '''<script type="text/javascript">fbg.hideFOUT('asap');</script>'''
+    
+foutbgone_init = Resource(library, 'foutbgone_init.js', renderer=render_init, 
+    depends=[foutbgone])    
